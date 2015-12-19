@@ -1,0 +1,6 @@
+AddType application/octet-stream .sin
+<FilesMatch "\.sin$">
+  ForceType application/octet-stream
+  Header set Content-Disposition attachment
+</FilesMatch>
+php_flag engine off

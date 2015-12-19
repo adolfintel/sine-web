@@ -1,0 +1,21 @@
+@media all and (max-width: 60em){
+	div.content{
+		max-width:95vw;
+	}
+}
+@media all and (max-width: 30em){
+	div.content{
+		font-size:0.75em;
+	}
+}
+html{
+	background-color:#FFFFFF;
+}
+
+h1{
+	font-weight:100;
+	font-size:3em;
+	color:#000000;
+	margin:0;
+	padding:0;
+}
