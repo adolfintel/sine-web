@@ -364,10 +364,12 @@ function sendComment(id,t,commentsArea){
 		font-family: 'Roboto';
 		font-style: normal;
 		font-weight: 400;
-		src: local('Roboto Regular'), local('Roboto'), url(fonts/roboto400.woff) format('woff');
+		src: local('Roboto Regular'), local('Roboto'), url(fonts/roboto400.woff) format('woff');		
 	}
 	html{
 		font-family: 'Roboto' !important;
+		background-color:#FFFFFF;
+		font-size:1.1em;
 	}
 <?php } ?>
 
@@ -378,20 +380,25 @@ function sendComment(id,t,commentsArea){
 }
 div.preset{
 	background-color:#FFFFFF;
-	border:0.08em solid #E0E0E0;
-	border-bottom:0.16em solid #DDDDDD;
-	border-radius:0.18em;
-	margin-bottom:0.6em;
 	font-weight:400;
 	<?php if($app){?>
-		width:95%;
+		width:100%;
 		margin-left:auto;
 		margin-right:auto;
+		border-bottom:1px solid #DDDDDD;
+	<?php }else{ ?>
+		border:0.08em solid #E0E0E0;
+		border-bottom:0.16em solid #DDDDDD;
+		border-radius:0.18em;
+		margin-bottom:0.6em;
 	<?php } ?>
 }
 div.preset > div.header{
 	padding:0.4em;
 	cursor: pointer;
+	<?php if($app){?>
+		padding:0.6em 0.6em 1em 0.6em;
+	<?php } ?>
 }
 div.preset > div.header > div.title{
 	font-size:1.1em;

@@ -20,6 +20,7 @@ Firefox 25+, Google Chrome 35+, Opera 22+, Microsoft Edge 12+. Safari is current
 	* http://sine.adolfintel.com/videoTutorial/sine_editor_tut_en.webm     (english, webm)
 	* http://sine.adolfintel.com/videoTutorial/sine_editor_tut_it.m4v     (italian, h264)
 	* http://sine.adolfintel.com/videoTutorial/sine_editor_tut_it.webm     (italian, webm)
+* Instead of the punBB forum, there's the anonymous comment system
 * Passwords were removed from .php files, of course
 * db.sql contains the commands to create the database: you will have to change the name of the db from 'DB' to whatever you want, and edit all the .php files to include the name, the host, and your username/password.
 
@@ -32,7 +33,7 @@ Firefox 25+, Google Chrome 35+, Opera 22+, Microsoft Edge 12+. Safari is current
 I am not suprised, since I'm not a seasoned web developer. Please report them, I'll send you pics of my cat if you don't destroy my website.
 
 ## License
-Copyright (C) 2015 Federico Dossena
+Copyright (C) 2016 Federico Dossena
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
