@@ -408,8 +408,11 @@ div.preset > div.header > div.author{
 	color:#808080;
 }
 div.preset > div.expansion{
-	background-color:#DDDDDD;
+	background-color:#DFDFDF;
 	padding:0.4em;
+	<?php if($app){?>
+		box-shadow: inset 0 5em 1em -5em rgba(0,0,0,0.1),inset 0 -5em 1em -5em rgba(0,0,0,0.08);
+	<?php } ?>
 }
 div.preset > div.expansion > div.buttonArea{
 	margin-top:0.8em;
