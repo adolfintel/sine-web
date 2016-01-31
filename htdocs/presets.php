@@ -195,7 +195,7 @@ function addDownload(id){
 function toggle(id){
 	try{
 		var d=document.getElementById("exp"+id);
-		if(d.style.display=="none"){loadExpansionAndShow(id); expandedPresets.push(id); d.scrollIntoView({block: "start", behavior: "smooth"});} else {
+		if(d.style.display=="none"){loadExpansionAndShow(id); expandedPresets.push(id); d.parentElement.scrollIntoView({block: "start", behavior: "smooth"});} else {
 			d.style.display="none";
 			for(var i = expandedPresets.length; i--;) {
 				if(expandedPresets[i] === id) {
