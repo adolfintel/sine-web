@@ -19,13 +19,26 @@ div.stripe{
 }
 
 a.downloadLink{
-	color:rgba(255,255,255,0.8);
-	font-size:1.1em;
-	text-decoration:underline;
-	margin-bottom:0.7em;
+	display:inline-block;
+	font-size:1.2em;
+	border: 0.12em solid #FFFFFF;
+	border-radius:0.2em;
+	padding:0.5em 1em;
+	color:#FFFFFF;
+	margin:0.5em 0;
+	text-decoration:none;
+	transition:all 0.2s;
 }
 a.downloadLink:hover, a.downloadLink:focus, a.downloadLink:active{
-	color:rgba(255,255,255,1);
+	background-color:#FFFFFF;
+	color:#000000;
+}
+a.help{
+	color:rgba(255,255,255,0.8);
+	font-size:0.9em;
+}
+#winDl, #linuxDl, #otherDl, #showAll{
+	text-align:center;
 }
 img.dlpic{
 	margin:0.7em;
@@ -67,8 +80,25 @@ div.OSlogoContainer{
 		display:block;
 		margin:0;
 	}
+	.downloadLinks{
+		text-align:center
+	}
 }
+/*i.fa-download{
+	width:2em;
+	height:2em;
+	margin-right:0.7em;
+	vertical-align:middle;
+	display:inline-block;
+	background:url('images/fa-download.svg');
+}
+a.downloadLink:hover > i.fa-download, a.downloadLink:focus > i.fa-download, a.downloadLink:active > i.fa-download {
+	background:url('images/fa-download-black.svg');
+}*/
 </style>
+<script type="text/javascript">
+	
+</script>
 </head>
 <body <?php if($_SESSION["locale"]=="it") echo "lang='it'"; else echo "lang='en'";?>>
 <div class="wrapper">
@@ -80,7 +110,21 @@ div.OSlogoContainer{
 <h3><?=$_SESSION["locale"]=="it"?"Per il tuo PC":"For your PC"?></h3>
 <?=$_SESSION["locale"]=="it"?"SINE &egrave; compatibile con Windows, GNU/Linux, Mac OS X, e BSD.<br/>Questa versione include anche un editor semplice da usare per creare i tuoi Preset e condividerli col mondo.":"SINE is compatible with Windows, GNU/Linux, Mac OS X, and BSD.<br/>This version even includes an easy to use editor to make your own Presets to share with the world."?>
 <br/><br/>
-<a id="winDl" href="http://downloads.adolfintel.com/geth.php?r=sine-win" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica per Windows":"Download for Windows"?></a><br/>
+<div id="winDl" class="downloadLinks" style="display:none">
+	<a href="http://downloads.adolfintel.com/geth.php?r=sine-win" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica per Windows":"Download for Windows"?></a>
+</div>
+<div id="linuxDl" class="downloadLinks clear" style="display:none"> <!-- class clear to move it below the picture -->
+	<a href="http://downloads.adolfintel.com/geth.php?r=sine-deb" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica .deb per Ubuntu, Debian, etc.":"Download .deb for Ubuntu, Debian, ecc."?></a>
+	<a href="https://aur.archlinux.org/packages/sine/" target="_blank" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica for Arch Linux":"Download for Arch Linux"?><sup>AUR</sup></a>
+</div>
+<div id="otherDl" class="downloadLinks">
+	<a href="http://downloads.adolfintel.com/geth.php?r=sine-pcbin" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica versione portable multipiattaforma":"Download multiplatform portable version"?></a>
+	<br/>
+	<a href="help.php" class="help"><?=$_SESSION["locale"]=="it"?"Serve aiuto?":"Need help?"?></a>
+</div>
+<div id="showAll" class="downloadLinks">
+	<a href="javascript:" onclick="document.getElementById('winDl').style.display='';document.getElementById('linuxDl').style.display='';document.getElementById('otherDl').style.display='';document.getElementById('showAll').style.display='none';" class="help"><?=$_SESSION["locale"]=="it"?"Mostra tutti i download":"Show all downloads"?></a>
+</div>
 <script type="text/javascript">
 	function isX86(){
 		var p=window.navigator.platform.toLowerCase();
@@ -88,10 +132,21 @@ div.OSlogoContainer{
 		["win32","win64","wow64","i386", "i486", "i586", "i686", "x86", "x64", "x86_64", "amd64", "intel"].forEach(function(x){if(p.indexOf(x)!=-1){x86=true;}});
 		return x86;
 	}
-	if(navigator.platform.toLowerCase().indexOf("win")==-1||!isX86()) document.getElementById("winDl").style.display="none";
+	function isWindows(){
+		return navigator.platform.toLowerCase().indexOf("win")!=-1;
+	}
+	function isLinux(){
+		return navigator.platform.toLowerCase().indexOf("linux")!=-1;
+	}
+	if(isWindows()&&isX86()){
+		document.getElementById("winDl").style.display="";
+		document.getElementById("otherDl").style.display="none";
+	}
+	if(isLinux()){
+		document.getElementById("linuxDl").style.display="";
+		document.getElementById("otherDl").style.display="none";
+	}
 </script>
-<a href="http://downloads.adolfintel.com/geth.php?r=sine-pcbin" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica versione portable multipiattaforma":"Download multiplatform portable version"?></a>
-<a href="help.php" class="downloadLink" style="font-size:0.8em"><?=$_SESSION["locale"]=="it"?"Serve aiuto?":"Need help?"?></a>
 <div class="clear"></div>
 </div>
 </div>
@@ -99,9 +154,11 @@ div.OSlogoContainer{
 <div class="content">
 <img src="images/tablet.png" alt="Android" class="dlpic" style="float:right;" />
 <h3><?=$_SESSION["locale"]=="it"?"Per il tuo Android":"For your Android"?></h3>
-<?=$_SESSION["locale"]=="it"?"SINE &egrave; compatibile con Smartphone e Tablet Android":"SINE is compatible with Windows, GNU/Linux, Mac OS X, and BSD."?>
+<?=$_SESSION["locale"]=="it"?"SINE &egrave; compatibile con Smartphone e Tablet Android":"SINE is compatible with Android Tablets and Smartphones."?>
 <br/><br/>
+<div class="downloadLinks">
 <a href="https://play.google.com/store/apps/details?id=com.dosse.bwentrain.androidPlayer" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica da Google Play":"Download from Google Play"?></a>
+</div>
 <div class="clear"></div>
 </div>
 </div>
@@ -111,7 +168,9 @@ div.OSlogoContainer{
 <h3><?=$_SESSION["locale"]=="it"?"Sul web":"On the web"?></h3>
 <?=$_SESSION["locale"]=="it"?"Se utilizzi un browser moderno, puoi usare SINE direttamente dal web, senza bisogno di scaricare nulla!":"If you're using a modern browser, you can use SINE directly from the web, no need to download anything!"?>
 <br/><br/>
+<div class="downloadLinks">
 <a href="webapp/index.php" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Prova la Web app":"Try the Web app"?></a>
+</div>
 <div class="clear"></div>
 </div>
 </div>

@@ -47,6 +47,9 @@ font-size:1.75em;
 h3{
 font-size:1.5em;
 }
+sup{
+font-size:0.7em;
+}
 a img{ /* we love you IE... */
 	border:0;
 	outline:none;
@@ -119,7 +122,7 @@ div.content{
 }
 #nav > #logo{
 	display:inline-block;
-	height:4.3em;
+	height:5em;
 	width:auto;
 	vertical-align:top;
 	margin-right:2em;
@@ -130,7 +133,7 @@ div.content{
 	margin:0;
 	padding:0;
 	height:100%;
-	line-height:4.3em;
+	line-height:5em;
 	display:inline-block;
 	text-align:center;
 	color:#FFFFFF;
