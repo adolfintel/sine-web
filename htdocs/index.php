@@ -22,7 +22,7 @@ a.downloadLink{
 	display:inline-block;
 	font-size:1.2em;
 	border: 0.12em solid #FFFFFF;
-	border-radius:0.2em;
+	border-radius:0.15em;
 	padding:0.5em 1em;
 	color:#FFFFFF;
 	margin:0.5em 0;
@@ -113,7 +113,10 @@ a.downloadLink:hover > i.fa-download, a.downloadLink:focus > i.fa-download, a.do
 <div id="winDl" class="downloadLinks" style="display:none">
 	<a href="http://downloads.adolfintel.com/geth.php?r=sine-win" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica per Windows":"Download for Windows"?></a>
 </div>
-<div id="linuxDl" class="downloadLinks clear" style="display:none"> <!-- class clear to move it below the picture -->
+<div id="macDl" class="downloadLinks clear" style="display:none"> <!-- class clear to move it below the picture -->
+	<a href="http://downloads.adolfintel.com/geth.php?r=sine-mac" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica Mac OS X":"Download for Mac OS X"?></a>
+</div>
+<div id="linuxDl" class="downloadLinks" style="display:none">
 	<a href="http://downloads.adolfintel.com/geth.php?r=sine-deb" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica .deb per Ubuntu, Debian, etc.":"Download .deb for Ubuntu, Debian, ecc."?></a>
 	<a href="https://aur.archlinux.org/packages/sine/" target="_blank" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica for Arch Linux":"Download for Arch Linux"?><sup>AUR</sup></a>
 </div>
@@ -123,7 +126,7 @@ a.downloadLink:hover > i.fa-download, a.downloadLink:focus > i.fa-download, a.do
 	<a href="help.php" class="help"><?=$_SESSION["locale"]=="it"?"Serve aiuto?":"Need help?"?></a>
 </div>
 <div id="showAll" class="downloadLinks">
-	<a href="javascript:" onclick="document.getElementById('winDl').style.display='';document.getElementById('linuxDl').style.display='';document.getElementById('otherDl').style.display='';document.getElementById('showAll').style.display='none';" class="help"><?=$_SESSION["locale"]=="it"?"Mostra tutti i download":"Show all downloads"?></a>
+	<a href="javascript:" onclick="document.getElementById('winDl').style.display='';document.getElementById('linuxDl').style.display='';document.getElementById('macDl').style.display='';document.getElementById('otherDl').style.display='';document.getElementById('showAll').style.display='none';" class="help"><?=$_SESSION["locale"]=="it"?"Mostra tutti i download":"Show all downloads"?></a>
 </div>
 <script type="text/javascript">
 	function isX86(){
@@ -138,12 +141,19 @@ a.downloadLink:hover > i.fa-download, a.downloadLink:focus > i.fa-download, a.do
 	function isLinux(){
 		return navigator.platform.toLowerCase().indexOf("linux")!=-1;
 	}
+	function isMacIntel(){
+		return navigator.platform.toLowerCase().indexOf("macintel")!=-1;
+	}
 	if(isWindows()&&isX86()){
 		document.getElementById("winDl").style.display="";
 		document.getElementById("otherDl").style.display="none";
 	}
 	if(isLinux()){
 		document.getElementById("linuxDl").style.display="";
+		document.getElementById("otherDl").style.display="none";
+	}
+	if(isMacIntel()){
+		document.getElementById("macDl").style.display="";
 		document.getElementById("otherDl").style.display="none";
 	}
 </script>
