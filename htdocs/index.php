@@ -37,7 +37,7 @@ a.help{
 	color:rgba(255,255,255,0.8);
 	font-size:0.9em;
 }
-#winDl, #linuxDl, #otherDl, #showAll{
+#winDl, #linuxDl, #otherDl, #macDl, #showAll{
 	text-align:center;
 }
 img.dlpic{
@@ -113,10 +113,10 @@ a.downloadLink:hover > i.fa-download, a.downloadLink:focus > i.fa-download, a.do
 <div id="winDl" class="downloadLinks" style="display:none">
 	<a href="http://downloads.adolfintel.com/geth.php?r=sine-win" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica per Windows":"Download for Windows"?></a>
 </div>
-<div id="macDl" class="downloadLinks clear" style="display:none"> <!-- class clear to move it below the picture -->
-	<a href="http://downloads.adolfintel.com/geth.php?r=sine-mac" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica Mac OS X":"Download for Mac OS X"?></a>
+<div id="macDl" class="downloadLinks" style="display:none">
+	<a href="http://downloads.adolfintel.com/geth.php?r=sine-mac" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica per Mac OS X":"Download for Mac OS X"?></a>
 </div>
-<div id="linuxDl" class="downloadLinks" style="display:none">
+<div id="linuxDl" class="downloadLinks clear" style="display:none"> <!-- class clear to move it below the picture -->
 	<a href="http://downloads.adolfintel.com/geth.php?r=sine-deb" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica .deb per Ubuntu, Debian, etc.":"Download .deb for Ubuntu, Debian, ecc."?></a>
 	<a href="https://aur.archlinux.org/packages/sine/" target="_blank" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica for Arch Linux":"Download for Arch Linux"?><sup>AUR</sup></a>
 </div>
