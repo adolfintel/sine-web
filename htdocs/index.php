@@ -15,7 +15,8 @@ div.stripe{
 	padding:1.5em 0 1.5em 0;
 	clear:both;
 	color:#FFFFFF;
-	box-shadow: 0 -2em 2em -2em rgba(0,0,0,0.3) inset, 0 1em 1em -1em rgba(0,0,0,0.2) inset;
+	position:relative;
+	z-index:999;
 }
 
 a.downloadLink{
@@ -23,7 +24,7 @@ a.downloadLink{
 	font-size:1.2em;
 	border: 0.12em solid #FFFFFF;
 	border-radius:0.15em;
-	padding:0.5em 1em;
+	padding:0.8em 1em;
 	color:#FFFFFF;
 	margin:0.5em 0;
 	text-decoration:none;
@@ -37,7 +38,7 @@ a.help{
 	color:rgba(255,255,255,0.8);
 	font-size:0.9em;
 }
-#winDl, #linuxDl, #otherDl, #macDl, #showAll{
+.downloadLinks{
 	text-align:center;
 }
 img.dlpic{
@@ -56,6 +57,22 @@ div.stripe h3{
 	font-weight:300;
 	clear:none;
 }
+div.separator{
+	clear:both;
+	height:3em;
+}
+
+#trianglesBk{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1;
+}
+div.content{
+	z-index:1;
+}
 
 img.tinyScreenshot{
 	margin:0.5em;
@@ -67,7 +84,18 @@ div.OSlogoContainer{
 	text-align:center;
 	margin-left:0.7em;
 }
+
+#bigLogo{
+	width:70%;
+	height:auto;
+	display:block;
+	margin:0 auto 1em auto;
+}
+
 @media all and (max-width: 40em){
+	#bigLogo{
+		width:60%;
+	}
 	img.tinyScreenshot, img.dlpic{
 		display:block;
 		width:100% !important;
@@ -80,108 +108,82 @@ div.OSlogoContainer{
 		display:block;
 		margin:0;
 	}
-	.downloadLinks{
-		text-align:center
-	}
 }
-/*i.fa-download{
-	width:2em;
-	height:2em;
-	margin-right:0.7em;
-	vertical-align:middle;
-	display:inline-block;
-	background:url('images/fa-download.svg');
-}
-a.downloadLink:hover > i.fa-download, a.downloadLink:focus > i.fa-download, a.downloadLink:active > i.fa-download {
-	background:url('images/fa-download-black.svg');
-}*/
+
+
 </style>
-<script type="text/javascript">
-	
-</script>
+<script type="text/javascript" src="muhTriangles.min.js"></script>
 </head>
 <body <?php if($_SESSION["locale"]=="it") echo "lang='it'"; else echo "lang='en'";?>>
 <div class="wrapper">
 <div class="wrapper">
 <?php include 'header.php'; ?>
-<div class="stripe" style="background-color:#d55401;">
-<div class="content">
-<img src="images/laptop.png" alt="PC" class="dlpic" style="float:left;" />
-<h3><?=$_SESSION["locale"]=="it"?"Per il tuo PC":"For your PC"?></h3>
-<?=$_SESSION["locale"]=="it"?"SINE &egrave; compatibile con Windows, GNU/Linux, Mac OS X, e BSD.<br/>Questa versione include anche un editor semplice da usare per creare i tuoi Preset e condividerli col mondo.":"SINE is compatible with Windows, GNU/Linux, Mac OS X, and BSD.<br/>This version even includes an easy to use editor to make your own Presets to share with the world."?>
-<br/><br/>
-<div id="winDl" class="downloadLinks" style="display:none">
-	<a href="http://downloads.adolfintel.com/geth.php?r=sine-win" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica per Windows":"Download for Windows"?></a>
-</div>
-<div id="macDl" class="downloadLinks" style="display:none">
-	<a href="http://downloads.adolfintel.com/geth.php?r=sine-mac" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica per Mac OS X":"Download for Mac OS X"?></a>
-</div>
-<div id="linuxDl" class="downloadLinks clear" style="display:none"> <!-- class clear to move it below the picture -->
-	<a href="http://downloads.adolfintel.com/geth.php?r=sine-deb" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica .deb per Ubuntu, Debian, etc.":"Download .deb for Ubuntu, Debian, ecc."?></a>
-	<a href="https://aur.archlinux.org/packages/sine/" target="_blank" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica for Arch Linux":"Download for Arch Linux"?><sup>AUR</sup></a>
-</div>
-<div id="otherDl" class="downloadLinks">
-	<a href="http://downloads.adolfintel.com/geth.php?r=sine-pcbin" class="downloadLink"><i class="fa-download"></i><?=$_SESSION["locale"]=="it"?"Scarica versione portable multipiattaforma":"Download multiplatform portable version"?></a>
-	<br/>
-	<a href="help.php" class="help"><?=$_SESSION["locale"]=="it"?"Serve aiuto?":"Need help?"?></a>
-</div>
-<div id="showAll" class="downloadLinks">
-	<a href="javascript:" onclick="document.getElementById('winDl').style.display='';document.getElementById('linuxDl').style.display='';document.getElementById('macDl').style.display='';document.getElementById('otherDl').style.display='';document.getElementById('showAll').style.display='none';" class="help"><?=$_SESSION["locale"]=="it"?"Mostra tutti i download":"Show all downloads"?></a>
-</div>
-<script type="text/javascript">
-	function isX86(){
-		var p=window.navigator.platform.toLowerCase();
-		var x86=false;
-		["win32","win64","wow64","i386", "i486", "i586", "i686", "x86", "x64", "x86_64", "amd64", "intel"].forEach(function(x){if(p.indexOf(x)!=-1){x86=true;}});
-		return x86;
-	}
-	function isWindows(){
-		return navigator.platform.toLowerCase().indexOf("win")!=-1;
-	}
-	function isLinux(){
-		return navigator.platform.toLowerCase().indexOf("linux")!=-1;
-	}
-	function isMacIntel(){
-		return navigator.platform.toLowerCase().indexOf("macintel")!=-1;
-	}
-	if(isWindows()&&isX86()){
-		document.getElementById("winDl").style.display="";
-		document.getElementById("otherDl").style.display="none";
-	}
-	if(isLinux()){
-		document.getElementById("linuxDl").style.display="";
-		document.getElementById("otherDl").style.display="none";
-	}
-	if(isMacIntel()){
-		document.getElementById("macDl").style.display="";
-		document.getElementById("otherDl").style.display="none";
-	}
-</script>
-<div class="clear"></div>
-</div>
-</div>
 <div class="stripe" style="background-color:#2a80b9;">
+<canvas id="trianglesBk"></canvas>
 <div class="content">
-<img src="images/tablet.png" alt="Android" class="dlpic" style="float:right;" />
-<h3><?=$_SESSION["locale"]=="it"?"Per il tuo Android":"For your Android"?></h3>
-<?=$_SESSION["locale"]=="it"?"SINE &egrave; compatibile con Smartphone e Tablet Android":"SINE is compatible with Android Tablets and Smartphones."?>
-<br/><br/>
-<div class="downloadLinks">
-<a href="https://play.google.com/store/apps/details?id=com.dosse.bwentrain.androidPlayer" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica da Google Play":"Download from Google Play"?></a>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="stripe" style="background-color:#565e57;">
-<div class="content">
-<img src="images/webapp.png" alt="Web app" class="dlpic" style="float:left;" />
-<h3><?=$_SESSION["locale"]=="it"?"Sul web":"On the web"?></h3>
-<?=$_SESSION["locale"]=="it"?"Se utilizzi un browser moderno, puoi usare SINE direttamente dal web, senza bisogno di scaricare nulla!":"If you're using a modern browser, you can use SINE directly from the web, no need to download anything!"?>
-<br/><br/>
-<div class="downloadLinks">
-<a href="webapp/index.php" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Prova la Web app":"Try the Web app"?></a>
-</div>
-<div class="clear"></div>
+	<img id="bigLogo" src="images/logoXLTransp.png" alt="SINE" />
+	<div id="winDl" class="downloadLinks" style="display:none">
+		<a href="http://downloads.adolfintel.com/geth.php?r=sine-win" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica per Windows":"Download for Windows"?></a>
+	</div>
+	<div id="androidDl" class="downloadLinks" style="display:none">
+		<a href="https://play.google.com/store/apps/details?id=com.dosse.bwentrain.androidPlayer" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica per Android da Google Play":"Download from Google Play"?></a>
+	</div>
+	<div id="macDl" class="downloadLinks" style="display:none">
+		<a href="http://downloads.adolfintel.com/geth.php?r=sine-mac" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica per Mac OS X":"Download for Mac OS X"?></a>
+	</div>
+	<div id="linuxDl" class="downloadLinks" style="display:none"> <!-- class clear to move it below the picture -->
+		<a href="http://downloads.adolfintel.com/geth.php?r=sine-deb" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica .deb per Ubuntu, Debian, etc.":"Download .deb for Ubuntu, Debian, ecc."?></a>
+		<a href="https://aur.archlinux.org/packages/sine/" target="_blank" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica for Arch Linux":"Download for Arch Linux"?><sup>AUR</sup></a>
+	</div>
+	<div id="otherDl" class="downloadLinks">
+		<a href="webapp/index.php" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Prova la webapp":"Try the webapp"?></a>
+		<a href="http://downloads.adolfintel.com/geth.php?r=sine-pcbin" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica versione portable multipiattaforma":"Download multiplatform portable version"?></a><br/>
+		<a href="http://adolfintel.com/?p=sine/index.frag"class="downloadLink"><?=$_SESSION["locale"]=="it"?"Codice sorgente":"Source code"?></a><br/>
+		<a href="help.php" class="help"><?=$_SESSION["locale"]=="it"?"Serve aiuto?":"Need help?"?></a>
+	</div>
+	<div id="showAll" class="downloadLinks">
+		<a href="javascript:" onclick="document.getElementById('winDl').style.display='';document.getElementById('androidDl').style.display='';document.getElementById('linuxDl').style.display='';document.getElementById('macDl').style.display='';document.getElementById('otherDl').style.display='';document.getElementById('showAll').style.display='none';" class="help"><?=$_SESSION["locale"]=="it"?"Mostra tutti i download":"Show all downloads"?></a>
+	</div>
+	<script type="text/javascript">
+		function isX86(){
+			var p=window.navigator.platform.toLowerCase();
+			var plats=["win32","win64","wow64","i386", "i486", "i586", "i686", "x86", "x64", "x86_64", "amd64", "intel"];
+			for(var i=0;i<plats.length;i++) if(plats[i].indexOf(p)!=-1) return true;
+			return false;
+		}
+		function isWindows(){
+			return navigator.platform.toLowerCase().indexOf("win")!=-1;
+		}
+		function isLinux(){
+			return navigator.platform.toLowerCase().indexOf("linux")!=-1;
+		}
+		function isMacIntel(){
+			return navigator.platform.toLowerCase().indexOf("macintel")!=-1;
+		}
+		function isAndroid(){
+			return navigator.platform.toLowerCase().indexOf("android")!=-1;
+		}
+		if(isWindows()&&isX86()){
+			document.getElementById("winDl").style.display="";
+			document.getElementById("otherDl").style.display="none";
+		}else
+		if(isAndroid()){
+			document.getElementById("androidDl").style.display="";
+			document.getElementById("otherDl").style.display="none";
+		}else
+		if(isLinux()){
+			document.getElementById("linuxDl").style.display="";
+			document.getElementById("otherDl").style.display="none";
+		}else
+		if(isMacIntel()){
+			document.getElementById("macDl").style.display="";
+			document.getElementById("otherDl").style.display="none";
+		}
+		
+	</script>
+<script type="text/javascript">
+	new MuhTriangles("trianglesBk",'{"saturation":1,"customHue":208,"lightness":1,"outline":false,"gradientType":"random","gradientIntensity":0.4,"gradientMode":"smooth","gradientInvert":false,"speed":0.8,"instability":1.5,"density":0.3,"responsiveDensity":true,"model":"hexagons","fps":22}');
+</script>
 </div>
 </div>
 <div class="content">
@@ -189,6 +191,7 @@ a.downloadLink:hover > i.fa-download, a.downloadLink:focus > i.fa-download, a.do
 <?=$_SESSION["locale"]=="it"?"SINE Isochronic Entrainer &egrave; un'applicazione di Brainwave Entrainment Gratuita e Open Source che genera Toni isocronici.":"SINE Isochronic Entrainer is a Free and Open Source Brainwave Entrainment application that generates Isochronic tones."?>
 <br/>
 <a href="isochronic.php"><?=$_SESSION["locale"]=="it"?"Scopri di pi&ugrave; su Brainwave Entrainment e Toni isocronici":"Learn more about Isochronic tones and Brainwave Entrainment"?></a>
+<div class="separator"></div>
 <h3><?=$_SESSION["locale"]=="it"?"Multipiattaforma":"Multiplatform"?></h3>
 <div class="OSlogoContainer">
 <img src="images/win.png" alt="Windows"/>
@@ -198,16 +201,20 @@ a.downloadLink:hover > i.fa-download, a.downloadLink:focus > i.fa-download, a.do
 <img src="images/android.png" alt="Android"/>
 <img src="images/web.png" alt="HTML5"/>
 </div>
-<?=$_SESSION["locale"]=="it"?"SINE &egrave; disponibile su PC (Windows, GNU/Linux, Mac OS X e BSD), Smartphone e Tablet Android, e anche come Web app HTML5.<br/>Tutti i Preset funzionano su entrambe le piattaforme.":"SINE is available on PC (Windows, GNU/Linux, Mac OS X and BSD), Android Smartphones and Tablets, and even as an HTML5 Web app.<br/>All presets work on all platforms."?>
+<?=$_SESSION["locale"]=="it"?"SINE &egrave; disponibile su PC (Windows, GNU/Linux, Mac OS X e BSD), Smartphone e Tablet Android, e anche come Web app HTML5.<br/>I Preset funzionano su tutte le piattaforme.":"SINE is available on PC (Windows, GNU/Linux, Mac OS X and BSD), Android Smartphones and Tablets, and even as an HTML5 Web app.<br/>Presets work on all platforms."?>
+<div class="separator"></div>
 <h3><?=$_SESSION["locale"]=="it"?"Facile da usare":"Easy to use"?></h3>
 <img src="images/pcui.png" alt="PC Player UI" class="tinyScreenshot" style="float:right; width:50%" />
 <?=$_SESSION["locale"]=="it"?"L'interfaccia &egrave; progettata per essere il pi&ugrave; intuitiva possibile.":"The User Interface is designed to be as intuitive as possible."?>
+<div class="separator"></div>
 <h3><?=$_SESSION["locale"]=="it"?"Moltissimi Preset":"Tons of Presets"?></h3>
 <img src="images/phonepsp.png" alt="Preset Sharing Platform on Android" class="tinyScreenshot" style="float:left; width:25%" />
 <?=$_SESSION["locale"]=="it"?"Grazie alla <a href='presets.php'>Piattaforma di condivisione Preset</a>, puoi scaricare, valutare e commentare i Preset di altri utenti e caricare i tuoi.":"Thanks to the <a href='presets.php'>Preset sharing platform</a>, you can download, rate and comment other users' Presets, and upload your own."?>
+<div class="separator"></div>
 <h3><?=$_SESSION["locale"]=="it"?"Editor integrato":"Built-in editor"?></h3>
 <img src="images/pceditor.png" alt="Editor" class="tinyScreenshot" style="float:right; width:40%;" />
 <?=$_SESSION["locale"]=="it"?"La versione PC ha un editor, con cui puoi creare i tuoi Preset, completo di manuale e video tutorial.":"The PC version comes with an editor, so you can create your own Presets, complete with manual and video tutorial."?>
+<div class="separator"></div>
 <h3><?=$_SESSION["locale"]=="it"?"Software Libero":"Free Software"?></h3>
 <img src="images/gnu.png" alt="Free Software" style="float:left; margin:1em;" />
 <?=$_SESSION["locale"]=="it"?"SINE non &egrave; solo gratuito: &egrave; Software Libero, distribuito su licenza <a href='http://www.gnu.org/copyleft/gpl.html'>GNU GPLv3</a>.":"SINE isn't just free: it's Free Software, distributed under the <a href='http://www.gnu.org/copyleft/gpl.html'>GNU GPLv3 License</a>."?>
