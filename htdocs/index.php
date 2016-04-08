@@ -68,7 +68,8 @@ div.separator{
 	top:0;
 	left:0;
 	width:100vw;
-	height:100vh;
+	height:100%;
+	min-height:100vh;
 	z-index:-1;
 }
 div.content{
@@ -162,7 +163,7 @@ div.OSlogoContainer{
 			return navigator.platform.toLowerCase().indexOf("macintel")!=-1;
 		}
 		function isAndroid(){
-			return navigator.platform.toLowerCase().indexOf("android")!=-1;
+			return navigator.userAgent.toLowerCase().indexOf("android")!=-1;
 		}
 		if(isWindows()&&isX86()){
 			document.getElementById("winDl").style.display="";
