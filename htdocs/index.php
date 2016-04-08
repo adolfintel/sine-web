@@ -16,6 +16,7 @@ div.stripe{
 	clear:both;
 	color:#FFFFFF;
 	position:relative;
+	overflow:hidden;
 	z-index:999;
 }
 
@@ -66,8 +67,8 @@ div.separator{
 	position:absolute;
 	top:0;
 	left:0;
-	width:100%;
-	height:100%;
+	width:100vw;
+	height:100vh;
 	z-index:-1;
 }
 div.content{
@@ -86,10 +87,10 @@ div.OSlogoContainer{
 }
 
 #bigLogo{
-	width:70%;
+	width:50%;
 	height:auto;
 	display:block;
-	margin:0 auto 1em auto;
+	margin:0 auto 3em auto;
 }
 
 @media all and (max-width: 40em){
@@ -182,7 +183,7 @@ div.OSlogoContainer{
 		
 	</script>
 <script type="text/javascript">
-	new MuhTriangles("trianglesBk",'{"saturation":1,"customHue":208,"lightness":1,"outline":false,"gradientType":"random","gradientIntensity":0.4,"gradientMode":"smooth","gradientInvert":false,"speed":0.8,"instability":1.5,"density":0.3,"responsiveDensity":true,"model":"hexagons","fps":22}');
+	new MuhTriangles("trianglesBk",'{"saturation":1,"customHue":208,"lightness":1,"outline":false,"gradientType":"random","gradientIntensity":0.4,"gradientMode":"smooth","gradientInvert":false,"speed":0.8,"instability":1.5,"density":0.6,"responsiveDensity":false,"model":"hexagons","fps":60}');
 </script>
 </div>
 </div>
