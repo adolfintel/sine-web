@@ -4,7 +4,6 @@ session_start();
 	header("Cache-Control: no-store, no-cache, must-revalidate");
 	header("Cache-Control: post-check=0, pre-check=0", false);
 	header("Pragma: no-cache");	
-	$usevw=isset($_GET["ieshit"]);
    ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,7 +15,6 @@ body{
 margin:0;
 padding:0;
 font-family:'Open Sans';
-<?php if($usevw){ ?> font-size:4vw; <?php } else {?> font-size:16px; <?php } ?>
 color:#FFFFFF;
 background:transparent;
 }
@@ -24,7 +22,6 @@ img{
 border:none;
 outline:none;
 vertical-align:middle;
-<?php if($usevw){ ?> height:5vw; width:auto; <?php } ?>
 }
 a.button{
 display:inline-block;
@@ -92,8 +89,8 @@ if(isset($_GET["action"])){
 $qqq=mysql_query("SELECT * FROM preset WHERE id=".$id) or die (mysql_error());
 $q=mysql_fetch_object($qqq);
 ?>
-<a class='button like <?php if(isset($_SESSION[$v])) if($_SESSION[$v]=="l") echo "selected";?>' href='like.php?action=l<?php if($usevw){ ?>&ieshit=1<?php } ?>&id=<?=$q->id?>'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwABEI8AARCPAbZ2bGgAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAATRJREFUSEvtlCFLQ1EYhi+GhYnRGQwGHZiGVUwLgmlGRVDxD1iEmQaWpbG4YDOJP0GGv8Ag/gGDyWbToMzr8537yrwed+HunGDwgYfBec95v3DPTlKGNE37eI8rWooHpRV8RuNKy/Gg9CDrdgy1HAcKZ/HRVWecKYoDhYOs1/GOS4rCoWzH1Y65VBQOZev44mrH7CsOg6I1/Lo137GrajdqETdwD0+wg5s6Xgwbq/iAk/jQ709sfVk1k2FT120vzxvOq8aHsI4XOMJpeMVj1fkQtty2cBZUmYcgxoAbnFFlHoIYA9qq8yGMMcC+35wq8xDEGHCuOh/C0AFPWFGdD+Eq9vAa7U6Xxf5oddUVw8YanuIt2gtahBXf4baOl4OD9nQ0cAvtdT3EI9zFJv5+7//5AyTJJwa3srYCvHoKAAAAAElFTkSuQmCC" alt="Like"/><?=$q->likes?></a>
-<a class='button dislike <?php if(isset($_SESSION[$v])) if($_SESSION[$v]=="d") echo "selected";?>' href='like.php?action=d<?php if($usevw){ ?>&ieshit=1<?php } ?>&id=<?=$q->id?>'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwABEI8AARCPAbZ2bGgAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAATRJREFUSEvtlC9LQ2EUhy+GBcWohgWDG5iGdZgMA5NGZaDDL7Ay2NJgZUmMBtvS8COI+AkM4hdYMNlsGpTt+py7n7Dt3jv35xTBB57ynnN+By7ve4N//gZhGK5iAQ/xBCt4gad4gFtqnR2GNrGBj/iF0xjgEx5rPBkadvES7/AT58UW5RUXh+JR1LY4r5hRXByKyy4wbhQXh6LHgj6uK3IcCh4L6oqLQ9FjwQOuKHIcCh4LjOR3QSGPHbTvuAgfWFVcOjS1o/b5sbezoZh0aLJfQ88mUrAHlYSd7yhmOjTu4ZtNTXCFGcziPpaxhk0saXw2GCjiO45yprIPBNrfc5SuSn4Qej3MjrA/67ZKPhC4hi+WLloq+UHo+TA74l7HfhBqN+fnVt3q2BeC7Yo+Y05HvxAE3+VpsrZKF6GLAAAAAElFTkSuQmCC" alt="Dislike"/><?=$q->dislikes?></a>
+<a class='button like <?php if(isset($_SESSION[$v])) if($_SESSION[$v]=="l") echo "selected";?>' href='like.php?action=l&id=<?=$q->id?>'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwABEI8AARCPAbZ2bGgAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAATRJREFUSEvtlCFLQ1EYhi+GhYnRGQwGHZiGVUwLgmlGRVDxD1iEmQaWpbG4YDOJP0GGv8Ag/gGDyWbToMzr8537yrwed+HunGDwgYfBec95v3DPTlKGNE37eI8rWooHpRV8RuNKy/Gg9CDrdgy1HAcKZ/HRVWecKYoDhYOs1/GOS4rCoWzH1Y65VBQOZev44mrH7CsOg6I1/Lo137GrajdqETdwD0+wg5s6Xgwbq/iAk/jQ709sfVk1k2FT120vzxvOq8aHsI4XOMJpeMVj1fkQtty2cBZUmYcgxoAbnFFlHoIYA9qq8yGMMcC+35wq8xDEGHCuOh/C0AFPWFGdD+Eq9vAa7U6Xxf5oddUVw8YanuIt2gtahBXf4baOl4OD9nQ0cAvtdT3EI9zFJv5+7//5AyTJJwa3srYCvHoKAAAAAElFTkSuQmCC" alt="Like"/><?=$q->likes?></a>
+<a class='button dislike <?php if(isset($_SESSION[$v])) if($_SESSION[$v]=="d") echo "selected";?>' href='like.php?action=d&id=<?=$q->id?>'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwABEI8AARCPAbZ2bGgAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAATRJREFUSEvtlC9LQ2EUhy+GBcWohgWDG5iGdZgMA5NGZaDDL7Ay2NJgZUmMBtvS8COI+AkM4hdYMNlsGpTt+py7n7Dt3jv35xTBB57ynnN+By7ve4N//gZhGK5iAQ/xBCt4gad4gFtqnR2GNrGBj/iF0xjgEx5rPBkadvES7/AT58UW5RUXh+JR1LY4r5hRXByKyy4wbhQXh6LHgj6uK3IcCh4L6oqLQ9FjwQOuKHIcCh4LjOR3QSGPHbTvuAgfWFVcOjS1o/b5sbezoZh0aLJfQ88mUrAHlYSd7yhmOjTu4ZtNTXCFGcziPpaxhk0saXw2GCjiO45yprIPBNrfc5SuSn4Qej3MjrA/67ZKPhC4hi+WLloq+UHo+TA74l7HfhBqN+fnVt3q2BeC7Yo+Y05HvxAE3+VpsrZKF6GLAAAAAElFTkSuQmCC" alt="Dislike"/><?=$q->dislikes?></a>
 <?php
 ?>
 </body>
