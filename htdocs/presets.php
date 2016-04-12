@@ -240,24 +240,24 @@ function loadExpansionAndShow(id){
 					a.type="text";
 					a.setAttribute("readonly","readonly");
 					a.setAttribute("onclick","this.select()");
-					a.value="http://sine.adolfintel.com/goto.php?id="+id;
+					a.value="http://isochronic.io/goto.php?id="+id;
 					d.appendChild(a);
 					a=document.createElement("a");
 					a.className="social";
 					a.innerHTML="<img src='images/gplus.png' alt='Google+' />";
-					a.href="https://plus.google.com/share?url=http://sine.adolfintel.com/goto.php%3Fid="+id;
+					a.href="https://plus.google.com/share?url=http://isochronic.io/goto.php%3Fid="+id;
 					a.target="_blank";
 					d.appendChild(a);
 					a=document.createElement("a");
 					a.className="social";
 					a.innerHTML="<img src='images/twitter.png' alt='Twitter' />";
-					a.href="https://twitter.com/share?url=http://sine.adolfintel.com/goto.php%3Fid="+id;
+					a.href="https://twitter.com/share?url=http://isochronic.io/goto.php%3Fid="+id;
 					a.target="_blank";
 					d.appendChild(a);
 					a=document.createElement("a");
 					a.className="social";
 					a.innerHTML="<img src='images/fb.png' alt='Facebook' />";
-					a.href="https://www.facebook.com/sharer.php?u=http://sine.adolfintel.com/goto.php%3Fid="+id;
+					a.href="https://www.facebook.com/sharer.php?u=http://isochronic.io/goto.php%3Fid="+id;
 					a.target="_blank";
 					d.appendChild(a);
 					<?php } ?>

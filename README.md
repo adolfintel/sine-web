@@ -1,10 +1,10 @@
 # SINE Isochronic Entrainer Website and Webapp
-[SINE Isochronic Entrainer](http://sine.adolfintel.com) is a Free and Open Source Brainwave Entrainment application.
+[SINE Isochronic Entrainer](http://isochronic.io) is a Free and Open Source Brainwave Entrainment application.
 
 This is the source for the Website and Preset sharing platform, as well as the Webapp. Modern, responsive, and all that stuff.
 
 ## Take a look
-[SINE Isochronic Entrainer Website](http://sine.adolfintel.com/)
+[SINE Isochronic Entrainer Website](http://isochronic.io/)
 
 ## Compatibility
 ### Server side
@@ -16,10 +16,10 @@ Firefox 25+, Google Chrome 35+, Opera 22+, Microsoft Edge 12+. Safari is current
 
 ## Some notes:
 * To reduce the size of the archive, video files are not included. If you need them, you can download them from these URLs:
-	* http://sine.adolfintel.com/videoTutorial/sine_editor_tut_en.m4v     (english, h264)
-	* http://sine.adolfintel.com/videoTutorial/sine_editor_tut_en.webm     (english, webm)
-	* http://sine.adolfintel.com/videoTutorial/sine_editor_tut_it.m4v     (italian, h264)
-	* http://sine.adolfintel.com/videoTutorial/sine_editor_tut_it.webm     (italian, webm)
+	* http://isochronic.io/videoTutorial/sine_editor_tut_en.m4v     (english, h264)
+	* http://isochronic.io/videoTutorial/sine_editor_tut_en.webm     (english, webm)
+	* http://isochronic.io/videoTutorial/sine_editor_tut_it.m4v     (italian, h264)
+	* http://isochronic.io/videoTutorial/sine_editor_tut_it.webm     (italian, webm)
 * Instead of the punBB forum, there's the anonymous comment system
 * Passwords were removed from .php files, of course
 * db.sql contains the commands to create the database: you will have to change the name of the db from 'DB' to whatever you want, and edit all the .php files to include the name, the host, and your username/password.
