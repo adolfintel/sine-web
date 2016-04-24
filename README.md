@@ -12,7 +12,7 @@ Any recent version of Apache and MySQL should work.
 ### Website + Preset sharing platform
 Internet Explorer 8+, Firefox 4+, Google Chrome 6+, Opera 11.10+
 ### Webapp
-Firefox 25+, Google Chrome 35+, Opera 22+, Microsoft Edge 12+. Safari is currently unsupported, but it may work in the future.
+Firefox 25+, Google Chrome 35+, Opera 22+, Microsoft Edge 12+, Safari 9+.
 
 ## Some notes:
 * To reduce the size of the archive, video files are not included. If you need them, you can download them from these URLs:
