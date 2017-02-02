@@ -25,9 +25,9 @@ Firefox 25+, Google Chrome 35+, Opera 22+, Microsoft Edge 12+, Safari 9+.
 * db.sql contains the commands to create the database: you will have to change the name of the db from 'DB' to whatever you want, and edit all the .php files to include the name, the host, and your username/password.
 
 ## Screenshots
-![Screenshot](http://adolfintel.com/sine/website1.png)
-![Screenshot](http://adolfintel.com/sine/website2.png)
-![Screenshot](http://adolfintel.com/sine/webapp1.png)
+![Screenshot](http://fdossena.com/sine/website1.png)
+![Screenshot](http://fdossena.com/sine/website2.png)
+![Screenshot](http://fdossena.com/sine/webapp1.png)
 
 ## Found vulnerabilites?
 I am not suprised, since I'm not a seasoned web developer. Please report them, I'll send you pics of my cat if you don't destroy my website.
