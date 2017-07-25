@@ -17,23 +17,25 @@ $q="select * from preset order by downloads desc";
 if(isset($_GET["id"])) $q="select * from preset where id=".(int)($_GET["id"]);
 $query=mysql_query($q) or die(1);
 
-header('Content-type: text/xml; charset=utf-8');
-echo '<?xml version="1.0" ?>';
+header('Content-type: text/json charset=utf-8');
+
+$ret=array();
+while ($a = mysql_fetch_object ($query)) { 
+	$x=array();
+	$x["id"]=$a->id;
+	$x["title"]=$a->title;
+	$x["author"]=$a->author;
+	if(isset($_GET["full"])){
+		$x["description"]=$a->description;
+		$x["url"]=$UploadDirectory.$a->fileName;
+		$x["downloads"]=$a->downloads;
+		$x["likes"]=$a->likes;
+		$x["dislikes"]=$a->dislikes;
+		$x["date"]=$a->uploadDate;
+	}
+	$ret[]=$x;
+}
+echo json_encode($ret);
 ?>
-<PresetList>
-	<?php while ($a = mysql_fetch_object ($query)) { ?>
-		<Preset id="<?=$a->id?>">
-			<title><?=$a->title?></title>
-			<author><?=$a->author?></author>
-			<?php if(isset($_GET["full"])){ ?>
-				<description><?=$a->description?></description>
-				<url><?=$UploadDirectory.$a->fileName?></url>
-				<downloads><?=$a->downloads?></downloads>
-				<likes><?=$a->likes?></likes>
-				<dislikes><?=$a->dislikes?></dislikes>
-				<date><?=$a->uploadDate?></date>
-			<?php } ?>
-		</Preset>
-	<?php } ?>
-</PresetList>
+
 
