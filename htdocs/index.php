@@ -67,9 +67,8 @@ div.separator{
 	position:absolute;
 	top:0;
 	left:0;
-	width:100vw;
+	width:100%;
 	height:100%;
-	min-height:100vh;
 	z-index:-1;
 }
 div.content{
@@ -125,22 +124,21 @@ div.OSlogoContainer{
 <div class="content">
 	<img id="bigLogo" src="images/logoXLTransp.png" alt="SINE" />
 	<div id="winDl" class="downloadLinks" style="display:none">
-		<a href="http://downloads.adolfintel.com/geth.php?r=sine-win" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica per Windows":"Download for Windows"?></a>
+		<a href="http://downloads.fdossena.com/geth.php?r=sine-win" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica per Windows":"Download for Windows"?></a>
 	</div>
 	<div id="androidDl" class="downloadLinks" style="display:none">
 		<a href="https://play.google.com/store/apps/details?id=com.dosse.bwentrain.androidPlayer" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica per Android da Google Play":"Download from Google Play"?></a>
 	</div>
 	<div id="macDl" class="downloadLinks" style="display:none">
-		<a href="http://downloads.adolfintel.com/geth.php?r=sine-mac" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica per Mac OS X":"Download for Mac OS X"?></a>
+		<a href="http://downloads.fdossena.com/geth.php?r=sine-mac" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica per macOS":"Download for macOS"?></a>
 	</div>
 	<div id="linuxDl" class="downloadLinks" style="display:none"> <!-- class clear to move it below the picture -->
-		<a href="http://downloads.adolfintel.com/geth.php?r=sine-deb" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica .deb per Ubuntu, Debian, etc.":"Download .deb for Ubuntu, Debian, ecc."?></a>
-		<a href="https://aur.archlinux.org/packages/sine/" target="_blank" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica for Arch Linux":"Download for Arch Linux"?><sup>AUR</sup></a>
+		<a href="http://downloads.fdossena.com/geth.php?r=sine-deb" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica .deb per Ubuntu, Debian, etc.":"Download .deb for Ubuntu, Debian, ecc."?></a>
 	</div>
 	<div id="otherDl" class="downloadLinks">
 		<a href="webapp/index.php" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Prova la webapp":"Try the webapp"?></a>
-		<a href="http://downloads.adolfintel.com/geth.php?r=sine-pcbin" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica versione portable multipiattaforma":"Download multiplatform portable version"?></a><br/>
-		<a href="http://adolfintel.com/?p=sine/index.frag"class="downloadLink"><?=$_SESSION["locale"]=="it"?"Codice sorgente":"Source code"?></a><br/>
+		<a href="http://downloads.fdossena.com/geth.php?r=sine-pcbin" class="downloadLink"><?=$_SESSION["locale"]=="it"?"Scarica versione portable multipiattaforma":"Download multiplatform portable version"?></a><br/>
+		<a href="http://fdossena.com/?p=sine/index.frag"class="downloadLink"><?=$_SESSION["locale"]=="it"?"Codice sorgente":"Source code"?></a><br/>
 		<a href="help.php" class="help"><?=$_SESSION["locale"]=="it"?"Serve aiuto?":"Need help?"?></a>
 	</div>
 	<div id="showAll" class="downloadLinks">
@@ -175,7 +173,7 @@ div.OSlogoContainer{
 		}else
 		if(isLinux()){
 			document.getElementById("linuxDl").style.display="";
-			document.getElementById("otherDl").style.display="none";
+			document.getElementById("otherDl").style.display="";
 		}else
 		if(isMacIntel()){
 			document.getElementById("macDl").style.display="";
@@ -224,7 +222,7 @@ div.OSlogoContainer{
 <?=$_SESSION["locale"]=="it"?"Sei legalmente libero di usare questo software per qualsiasi scopo, di studiarlo, modificarlo per adattarlo alle tue necessit&agrave;, ridistribuirlo, e anche distribuire versioni modificate.":"You are legally free to use this software for any purpose, study it, modify it to fit your needs, redistribute it, and even redistribute your modified versions."?>
 <br/>
 <a href="https://www.gnu.org/philosophy/free-sw.html"><?=$_SESSION["locale"]=="it"?"Scopri di pi&ugrave; sul Software Libero":"Learn more about Free Software"?></a><br/>
-<a href="http://adolfintel.com/?p=sine/index.frag"><?=$_SESSION["locale"]=="it"?"Pagina del progetto":"Project page"?></a><br/>
+<a href="http://fdossena.com/?p=sine/index.frag"><?=$_SESSION["locale"]=="it"?"Pagina del progetto":"Project page"?></a><br/>
 </div>
 <?php include 'footer.php'; ?>
 </div>

@@ -33,7 +33,7 @@ Firefox 25+, Google Chrome 35+, Opera 22+, Microsoft Edge 12+, Safari 9+.
 I am not suprised, since I'm not a seasoned web developer. Please report them, I'll send you pics of my cat if you don't destroy my website.
 
 ## License
-Copyright (C) 2016 Federico Dossena
+Copyright (C) 2014-2018 Federico Dossena
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

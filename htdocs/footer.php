@@ -1,7 +1,7 @@
 <div class="clear"></div>
 <div id="footer">
 <div class="content">
-&copy;2014-2016 Federico Dossena
+&copy;2014-2018 Federico Dossena
 <div style="float:right">
 <a class="social" href="https://www.facebook.com/pages/SINE-Isochronic-Entrainer/649115715183345"><img src="images/fb.png" alt="Facebook"/></a>
 <a class="social" href="https://twitter.com/sineisochronic"><img src="images/twitter.png" alt="Twitter"/></a>
