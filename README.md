@@ -1,10 +1,10 @@
 # SINE Isochronic Entrainer Website and Webapp
-[SINE Isochronic Entrainer](http://isochronic.io) is a Free and Open Source Brainwave Entrainment application.
+[SINE Isochronic Entrainer](https://sine.fdossena.com/) is a Free and Open Source Brainwave Entrainment application.
 
 This is the source for the Website and Preset sharing platform, as well as the Webapp. Modern, responsive, and all that stuff.
 
 ## Take a look
-[SINE Isochronic Entrainer Website](http://isochronic.io/)
+[SINE Isochronic Entrainer Website](https://sine.fdossena.com/)
 
 ## Compatibility
 ### Server side
@@ -16,24 +16,21 @@ Firefox 25+, Google Chrome 35+, Opera 22+, Microsoft Edge 12+, Safari 9+.
 
 ## Some notes:
 * To reduce the size of the archive, video files are not included. If you need them, you can download them from these URLs:
-	* http://isochronic.io/videoTutorial/sine_editor_tut_en.m4v     (english, h264)
-	* http://isochronic.io/videoTutorial/sine_editor_tut_en.webm     (english, webm)
-	* http://isochronic.io/videoTutorial/sine_editor_tut_it.m4v     (italian, h264)
-	* http://isochronic.io/videoTutorial/sine_editor_tut_it.webm     (italian, webm)
+	* https://sine.fdossena.com/videoTutorial/sine_editor_tut_en.m4v     (english, h264)
+	* https://sine.fdossena.com/videoTutorial/sine_editor_tut_en.webm     (english, webm)
+	* https://sine.fdossena.com/videoTutorial/sine_editor_tut_it.m4v     (italian, h264)
+	* https://sine.fdossena.com/videoTutorial/sine_editor_tut_it.webm     (italian, webm)
 * Instead of the punBB forum, there's the anonymous comment system
 * Passwords were removed from .php files, of course
 * db.sql contains the commands to create the database: you will have to change the name of the db from 'DB' to whatever you want, and edit all the .php files to include the name, the host, and your username/password.
 
 ## Screenshots
-![Screenshot](http://fdossena.com/sine/website1.png)
-![Screenshot](http://fdossena.com/sine/website2.png)
-![Screenshot](http://fdossena.com/sine/webapp1.png)
-
-## Found vulnerabilites?
-I am not suprised, since I'm not a seasoned web developer. Please report them, I'll send you pics of my cat if you don't destroy my website.
+![Screenshot](https://fdossena.com/sine/website1.png)
+![Screenshot](https://fdossena.com/sine/website2.png)
+![Screenshot](https://fdossena.com/sine/webapp1.png)
 
 ## License
-Copyright (C) 2014-2018 Federico Dossena
+Copyright (C) 2014-2020 Federico Dossena
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
